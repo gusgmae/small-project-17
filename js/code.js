@@ -12,7 +12,7 @@ function sendLogin()
 
     // Get user and password from html elements
     let login = document.getElementById("username").value;
-    let password = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
     
     document.getElementById("ErrorMessage").innerHTML = "";
 
@@ -21,7 +21,7 @@ function sendLogin()
     // Create JSON payload
     let jsonPayload = JSON.stringify(dict);
 
-    let url = urlBase+'/Login.' + extension;
+    let url = urlBase + '/Login.' + extension;
 
     // Initialize a request to server
     let xhr = new XMLHttpRequest();
