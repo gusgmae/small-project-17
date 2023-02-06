@@ -15,6 +15,18 @@ if (!$conn) {
 #$jsondict = '{"fName":"asdf","lName":"asdfafsdg","email":"asdf@asdf.ads","password":"asdfas"}';
 #$data = json_decode($jsondict);
 
+
+//Make sure a user with the email does not already exist in the database. 
+$ask = 'SELECT * FROM Users WHERE Login="'. $data->email .'"';
+
+if($result = mysqli_query($conn, $ask)){
+  if(mysqli_num_rows($result) > 0)
+  {
+	  die("Email in use");
+  }
+}
+mysqli_free_result($result);
+
 //the sql line to be executed by the data base. it needs to be sent as a string, but since the line has variable data in it theres a lot of string concatenation to make it work
 //concatenation is done using . and strings are marked by '' instead of "" so we don't have to worry about escape characters. i.e. 'hello' . 'world'
 $sql = 'INSERT INTO Users (FirstName, LastName, Login, Password) VALUES ("'. $data->fName . '","' . $data->lName . '","' . $data->email . '","' . $data->password . '")';
