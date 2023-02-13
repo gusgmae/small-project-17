@@ -35,6 +35,16 @@
   background-color: #333;
   color: #f2f2f2;
 }
+body {
+        padding: 7px 14px;
+        background-color: white;
+        color: black;
+        font-size: 12px;
+      }
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
 </style>
 </head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
@@ -49,7 +59,7 @@
     <div class="topnav"><center>
       <A HREF="index.html" > Login </A>
       <A HREF="contacts.html"class="active"> Contacts </A>
-      <A HREF="create.html"> Create </A>
+      <A HREF="register.html"> Register </A>
     </center>
     </div>
 
@@ -66,5 +76,14 @@
         <button type="button" id="addContact" class="buttons" onclick="addContact();">Add Contact</button>
         <span id="serverMessage"></span>
     </center></div>
+    <div>
+        <button onclick="darkMode()">DarkMode</button>
+    </div>
+    <script>
+        function darkMode() {
+          var element = document.body;
+          element.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>
