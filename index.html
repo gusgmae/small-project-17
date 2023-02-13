@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COP 4331 LAMP Project</title>
+    <title>LAMP Project</title>
     <script type="text/javascript" src="js/code.js"></script>
     <style>
 .topnav {
@@ -13,7 +13,7 @@
 }
 
 .topnav a {
-  float: left;
+  float: center;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -39,21 +39,29 @@
 </head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
 <body>
-    <h1 id="title">COP 4331 Contact Manager</h1>
-
-    <div class="topnav">
+    <!--This will control the position and font of the title -->
+    <h1 id="title;"
+        style="font-family: Verdana, Geneva, Tahoma, sans-serif;
+               font-size: 200%;">
+        <center>Contact Manager</center></h1>
+    
+    <!-- This is the that controls the navigation bar-->
+    <div class="topnav"><center>
       <A HREF="index.html" class="active"> Login </A>
       <A HREF="contacts.html"> Contacts </A>
       <A HREF="create.html"> Create </A>
+    </center>
     </div>
 
-    <div id="login">
-        <h3 id="title">Login</h3>
+    <div id="login"><center>
+        <h3 id="title;"
+        style = "font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 150%;">Login</h3>
         <input type="text" id="username" placeholder="Username"/><br/>
         <input type="text" id="password" placeholder="Password"/><br/>
         <button type="button" id="loginButton" class="buttons" onclick="sendLogin();">Login</button>
         <button type="button" id="testLogin" class="buttons" onclick="testLogin();">TEST</button>
         <span id="serverMessage"></span>
-    </div>
+    
+    </center></div>
 </body>
 </html>

@@ -13,7 +13,7 @@
 }
 
 .topnav a {
-  float: left;
+  float: center;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -39,16 +39,24 @@
 </head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
 <body>
-    <h1 id="title">COP 4331 Contact Manager</h1>
-
-    <div class="topnav">
-      <A HREF="index.html"> Login </A>
-      <A HREF="contacts.html" class="active"> Contacts </A>
+    <!--This will control the position and font of the title -->
+    <h1 id="title;"
+        style="font-family: Verdana, Geneva, Tahoma, sans-serif;
+               font-size: 200%;">
+        <center>Contact Manager</center></h1>
+    
+<!-- This is the that controls the navigation bar-->
+    <div class="topnav"><center>
+      <A HREF="index.html" > Login </A>
+      <A HREF="contacts.html"class="active"> Contacts </A>
       <A HREF="create.html"> Create </A>
+    </center>
     </div>
 
-    <div id="addContacts">
-        <h3 id="title">Enter Contact Info</h3>
+    <div id="addContacts"><center>
+        <h3 id="title;"
+        style = "font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 150%;"
+        >Enter Contact Info</h3>
         <input type="text" id="Name" placeholder="Name"/><br/>
         <input type="text" id="Email" placeholder="Email"/><br/>
         <input type="text" id="PhoneNumber" placeholder="Phone Number"/><br/>
@@ -56,6 +64,6 @@
 
         <button type="button" id="addContact" class="buttons" onclick="addContact();">Add Contact</button>
         <span id="serverMessage"></span>
-    </div>
+    </center></div>
 </body>
 </html>
