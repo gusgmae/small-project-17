@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COP 4331 LAMP Project</title>
-    <script type="text/javascript" src="js/code.js"></script>  
+    <title>LAMP Project</title>
+    <script type="text/javascript" src="js/code.js"></script>
     <style>
         
         box {
@@ -108,45 +108,39 @@
         color: #F8F0E3;
         text-align: center;
       }
-  
-      </style>
-      <h1 id="title;"style="font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 300%;
-      color:#F8F0E3"><center>CONTACT MANAGER</center></h1>
-    </head>
 
+    </style>
+    <h1 id="title;"style="font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 300%;
+    color:#F8F0E3"><center>CONTACT MANAGER</center></h1>
+  </head>
+
+
+  <!-- body information -->
   <body>
     <!--This is the navigation bar information-->
     <ul>
-      <li><a href="login.html">Home</a></li>
+      <li><a class="active" href="login.html">Home</a></li>
       <li><a href="contacts.html">Contacts</a></li>
-      <li><a class="active" href="register.html">Register</a></li>
+      <li><a href="register.html">Register</a></li>
     </ul>
 
     <form>
-      <!-- Here goes the box for to the information to register-->
-      <box>
-        <h1>Register</h1>
 
-        <label for="firstName">First Name</label>
-        <input type="text" id="firstName" name="firstName" required>
+        <!--this is the box for inserting all the information-->
+        <box>
+            <h1>Log in</h1>
 
-        <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" name="lastName" required>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
 
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" name="" id="" placeholder="">
+            
+            <input type="submit" value="Log in">
 
-        <label for="" class="form-label">Password</label>
-        <input type="password" class="form-control" name="" id="" placeholder="">
-        
-        <input type="submit" value="Register">
-
-      </box>
-
-
+        </box>
     </form>
-
-
   </body>
+
 </html>
