@@ -9,26 +9,26 @@
     <style>
 .topnav {
   overflow: hidden;
-  background-color: #000000;
+  background-color: #45a29e;
 }
 
 .topnav a {
   float: center;
-  color: #f2f2f2;
+  color: #1f2833;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+  padding: 20px 25px;
+  text-decoration: #66FCF1;
   font-size: 17px;
 }
 
 .topnav a:hover {
   text-decoration: none;
-  background-color: #202b38;
+  background-color: #c5c6c7;
 }
 
 .topnav a.active:hover {
   text-decoration: none;
-  background-color: #202b38;
+  background-color: #45a29e;
   color: #f2f2f2;
 }
 .topnav a.active {
@@ -55,25 +55,42 @@
     <!--This will control the position and font of the title -->
     <h1 id="title;"
         style="font-family: Verdana, Geneva, Tahoma, sans-serif;
-               font-size: 200%;">
-        <center>Contact Manager</center></h1>
+               font-size: 400%;
+               color:#66FCF1">
+        <center>CONTACT MANAGER</center></h1>
     
     <!-- This is the that controls the navigation bar-->
     <div class="topnav"><center>
       <A HREF="index.html" class="active"> Login </A>
-      
+      <A HREF="contacts.html"> Contacts </A>
       <A HREF="register.html"> Register </A>
     </center>
     </div>
 
     <div id="login"><center>
         <h3 id="title;"
-        style = "font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 150%;">Login</h3>
-        <input type="text" id="username" placeholder="Username"/><br/>
-        <input type="password" id="password" placeholder="Password"/><br/>
-        <button type="button" id="loginButton" class="buttons" onclick="sendLogin();">Login</button>
-        <button type="button" id="testLogin" class="buttons" onclick="testLogin();">TEST</button>
+        style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+                 font-size: 200%;
+                 color:#45a29e">Login</h3>
+
+        <input type="text" id="username" style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color:#66FCF1" placeholder="Username"/><br/>
+
+        <input type="password" id="password" style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color:#66FCF1" placeholder="Password"/><br/>
+
+        <button type="button" id="loginButton"  style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color:#45a29e"class="buttons" onclick="sendLogin();">Login</button>
+
+        <button type="button" id="testLogin" style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color:#45a29e"class="buttons" onclick="testLogin();">TEST</button>
+        
         <span id="serverMessage"></span>
+
     
     </center></div>
     <div>

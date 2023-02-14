@@ -9,26 +9,26 @@
     <style>  
 .topnav {
   overflow: hidden;
-  background-color: #000000;
+  background-color: #45a29e;
 }
 
 .topnav a {
   float: center;
-  color: #f2f2f2;
+  color: #1f2833;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+  padding: 20px 25px;
+  text-decoration: #66FCF1;
   font-size: 17px;
 }
 
 .topnav a:hover {
   text-decoration: none;
-  background-color: #202b38;
+  background-color: #c5c6c7;
 }
 
 .topnav a.active:hover {
   text-decoration: none;
-  background-color: #202b38;
+  background-color: #45a29e;
   color: #f2f2f2;
 }
 .topnav a.active {
@@ -51,9 +51,10 @@ body {
 <body>
     <!--This will control the position and font of the title -->
     <h1 id="title;"
-        style="font-family: Verdana, Geneva, Tahoma, sans-serif;
-               font-size: 200%;">
-        <center>Contact Manager</center></h1>
+    style="font-family: Verdana, Geneva, Tahoma, sans-serif;
+           font-size: 400%;
+           color:#66FCF1">
+    <center>CONTACT MANAGER</center></h1>
   <!-- topnav references css above, active is specific for current page -->
     <div class="topnav"><center>
       <A HREF="index.html"> Login </A>
@@ -65,12 +66,29 @@ body {
     <br/>
     <div id="createUser"><center>
         <h3 id="title"
-        style = "font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 150%;">Create new user account</h3>
-        <input type="text" id="fName" placeholder="First Name"/><br/> <!-- type matter, text is for strings -->
-        <input type="text" id="lName" placeholder="Last Name"/><br/> <!-- id used by js to get data by element id -->
-        <input type="text" id="email" placeholder="Email"/><br/>
-        <input type="text" id="password" placeholder="Password"/><br/>
-        <button type="button" id="CreateButton" class="buttons" onclick="createUser();">Create</button> <!-- onclick is the js function that gets called by button -->
+        style = "font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 200%;
+        color:#45a29e"
+        >Create new user account</h3>
+        <input type="text" id="fName"style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color: #66FCF1" placeholder="First Name"/><br/> <!-- type matter, text is for strings -->
+        
+        <input type="text" id="lName" style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color: #66FCF1"placeholder="Last Name"/><br/> <!-- id used by js to get data by element id -->
+        
+        <input type="text" id="email" style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color: #66FCF1"placeholder="Email"/><br/>
+        
+        <input type="text" id="password" style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color: #66FCF1"placeholder="Password"/><br/>
+        
+        <button type="button" id="CreateButton"style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color: #66FCF1"
+        class="buttons" onclick="createUser();">Create</button> <!-- onclick is the js function that gets called by button -->
         <span id="serverMessage"></span>
     </center>
     </div>

@@ -9,26 +9,26 @@
     <style>
 .topnav {
   overflow: hidden;
-  background-color: #000000;
+  background-color: #45a29e;
 }
 
 .topnav a {
   float: center;
-  color: #f2f2f2;
+  color: #1f2833;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+  padding: 20px 25px;
+  text-decoration: #66FCF1;
   font-size: 17px;
 }
 
 .topnav a:hover {
   text-decoration: none;
-  background-color: #202b38;
+  background-color: #c5c6c7;
 }
 
 .topnav a.active:hover {
   text-decoration: none;
-  background-color: #202b38;
+  background-color: #45a29e;
   color: #f2f2f2;
 }
 .topnav a.active {
@@ -52,8 +52,9 @@ body {
     <!--This will control the position and font of the title -->
     <h1 id="title;"
         style="font-family: Verdana, Geneva, Tahoma, sans-serif;
-               font-size: 200%;">
-        <center>Contact Manager</center></h1>
+               font-size: 400%;
+               color:#66FCF1">
+        <center>CONTACT MANAGER</center></h1>
     
 <!-- This is the that controls the navigation bar-->
     <div class="topnav"><center>
@@ -65,15 +66,33 @@ body {
 
     <div id="addContacts"><center>
         <h3 id="title;"
-        style = "font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 150%;"
+        style = "font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 200%;
+        color:#45a29e"
         >Enter Contact Info</h3>
-        <input type="text" id="Name" placeholder="Name"/><br/>
-        <input type="text" id="LastName" placeholder="Last Name"/><br/>
-        <input type="text" id="Email" placeholder="Email"/><br/>
-        <input type="text" id="PhoneNumber" placeholder="Phone Number"/><br/>
-        <input type="text" id="User" placeholder="Temp Username Data"/><br/> <!-- at some point when user login is successful the email should be saved and doesn't need manual entry -->
 
-        <button type="button" id="addContact" class="buttons" onclick="addContact();">Add Contact</button>
+        <input type="text" id="Name"style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color: #66FCF1" placeholder="Name"/><br/>
+
+        <input type="text" id="LastName" style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color:#66FCF1"placeholder="Last Name"/><br/>
+        
+        <input type="text" id="Email" style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color:#66FCF1"placeholder="Email"/><br/>
+        
+        <input type="text" id="PhoneNumber" style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color:#66FCF1"placeholder="Phone Number"/><br/>
+        
+        <input type="text" id="User" style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color:#66FCF1"placeholder="Temp Username Data"/><br/> <!-- at some point when user login is successful the email should be saved and doesn't need manual entry -->
+
+        <button type="button" id="addContact"style = "font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        color:#45a29e" class="buttons" onclick="addContact();">Add Contact</button>
         <span id="serverMessage"></span>
     </center></div>
     <div>
