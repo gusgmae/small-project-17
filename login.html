@@ -15,6 +15,7 @@
         width: 300px;
         border: 5px solid #0CBABA;
         border-style: outset;
+        border-radius: 25px;
         padding: 50px;
         margin: 20px;
       }
@@ -40,7 +41,7 @@
         opacity: 0.6;
         padding: 10px;
         margin-bottom: 20px;
-        border-radius: 3px;
+        border-radius: 25px;
         border-style: outset;
         border: 2px solid #333;
         width: 275px;
@@ -55,7 +56,7 @@
         background-color: #4CAF50;
         border-style: outset;
         color: white;
-        border-radius: 5px;
+        border-radius: 25px;
         border: 2px solid #333;
         width: 300px;
         cursor: pointer;
@@ -65,6 +66,7 @@
 
       input[type="submit"]:hover {
         background-color: #3e8e41;
+        border-radius: 25px;
         border: 2px solid #333;
         width: 300px;
         cursor: pointer;
@@ -74,8 +76,10 @@
 
       /* Style the navigation bar */
       ul {
-        list-style-type: center center;
-        margin: 0;
+        
+        list-style-type: none;
+        border-radius: 25px;
+        margin: auto;
         padding: 0;
         overflow: hidden;
         background: linear-gradient(45deg,
@@ -88,10 +92,11 @@
       }
 
       li a {
+        
         display: inline-block;
         color: white;
         text-align: center;
-        padding: 15px 160px;
+        padding: 15px 100px;
         text-decoration: none;
         font-family:  MV Boli;
         font-size: large;
@@ -99,6 +104,7 @@
 
       li a:hover {
         background-color: #0CBABA;
+        border-radius: 25px;
       }
 
       label {
@@ -127,6 +133,7 @@
   <!-- body information -->
   <body>
     <!--This is the navigation bar information-->
+    
     <ul>
       <li><a class="active" href="login.html">Home</a></li>
       <li><a href="contacts.html">Contacts</a></li>
