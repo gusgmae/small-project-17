@@ -1,118 +1,171 @@
-// Update urlBase with IP of droplet until URL is defined
-const urlBase = './'
-const extension = 'php'
+let url = '' // TODO Fill this out based on yaml
 
-let firstName = "";
-let lastName = "";
-
-function sendLogin()
+function Register()
 {
-    firstName = "";
-    lastName = "";
-
-    // Get user and password from html elements
-    let login = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    
-    document.getElementById("ErrorMessage").innerHTML = "";
-
-    let dict = {login:login, password:password};
-
-    // Create JSON payload
-    let jsonPayload = JSON.stringify(dict);
-
-    let url = urlBase + '/Login.' + extension;
-
-    // Initialize a request to server
-    let xhr = new XMLHttpRequest();
-    // Send POST request to API endpoint
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-    try
-    {
-        xhr.onreadystatechange = function()
-        {
-            if(this.readyState == 4 && this.status == 200)
-            {
-                let jsonObject = JSON.parse(xhr.responseText);
-                userId = jsonObject.id;
-
-                if (userId < 1)
-                {
-                    document.getElementById("serverMessage").innerHTML = "User/Pass not valid";
-                    return;
-                }
-
-                firstName = jsonObject.firstname;
-                lastName = jsonObject.lastName;
-                
-                // Use this to change webpages if login is successful
-                window.location.href = "contacts.html";
-            }
-        };
-        // Send request
-        xhr.send(jsonPayload);
-    }
-    catch(err)
-    {
-        document.getElementById("serverMessage").innerHTML = err.message;
-    }
+    let fnameVal = document.getElementById("fname").value;
+    let lnameVal = document.getElementById("lname").value;
+    let emailVal = document.getElementById("email").value;
+    let passVal = document.getElementById("password").value;
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            fname : fnameVal,
+            lName : lnameVal,
+            email : emailVal,
+            password : passValu
+        })
+    }).then(res => {
+        return res.json()
+    }).then(data => console.log(data)).catch(error => console.log('ERROR'))
 }
 
-function sendLogout()
+function Login()
 {
-
+    let userVal = document.getElementById("username").value;
+    let passVal = document.getElementById("password").value;
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username : userVal,
+            password : passVal
+        })
+    }).then(res => {
+        createCookie(userVal, passVal, 3);
+        return res.json()
+    }).then(data => console.log(data)).catch(error => console.log('ERROR'))
 }
 
-function createContact()
+function Read()
 {
-    // Get information from create contact form
-    let fName = document.getElementById("fName").value;
-    let lName = document.getElementById("lName").value;
-    let email = document.getElementById("email").value;
-    // Placeholder for time created
-    // API should access the database and store the uid for this contact so it may be edited later
+    let uid = document.getElementById("uid").value;
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            uid : 'AlexTest',
+        })
+    }).then(res => {
+        return res.json()
+    }).then(data => console.log(data)).catch(error => console.log('ERROR'))
+}
 
-    // Create JSON payload this will be changed when API is working
-    let dict = {}
-    let jsonPayload = JSON.stringify(dict);
+function createCookie(uid, pass, exdays)
+{
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = uid + "=" + pass + ";" + exdays + ";path=/";
+}
 
-    // Define API endpoint
-    let url = urlBase + '/AddContact.' + extension;
-    // Initialize request
-    let xhr = new XMLHttpRequest();
-    //Open request
-    xhr.open("POST", url, true);
-    //Set request headers
-    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-    try
+function decodeCookie()
+{
+    let data = document.cookie.split(",");
+    for(split in data)
     {
-        xhr.onreadystatechange = function()
-        {
-            if(this.readyState == 4 && this.status == 200)
-            {
-                document.getElementById("serverMessage").innerHTML = "Color has been added"
-            }
-        };
-        xhr.send(jsonPayload);
-    }
-    catch(err)
-    {
-        document.getElementById("serverMessage").innerHTML = err.message;
+        let curr = split.trim();
+        let tokens = curr.split("=");
+        username = tokens[1];
+        userID = tokens[0];
     }
 }
 
-function readContact()
-{
+// get reference to the contact list HTML element
+const contactList = document.getElementById('contact-list');
 
+// function to create a contact HTML element with edit and delete buttons
+function createContactElement(contact) {
+	// create the HTML elements
+	const contactElement = document.createElement('div');
+	const fname = document.createElement('span');
+	const email = document.createElement('span');
+	const password = document.createElement('span');
+	const editButton = document.createElement('button');
+	const deleteButton = document.createElement('button');
+	
+	// set the text and attributes of the HTML elements
+	fname.textContent = `${contact.firstname} ${contact.lastname}`;
+	email.textContent = contact.email;
+	password.textContent = contact.password;
+	editButton.textContent = 'Edit';
+	editButton.setAttribute('data-id', contact.id);
+	deleteButton.textContent = 'Delete';
+	deleteButton.setAttribute('data-id', contact.id);
+	
+	// add event listeners to the edit and delete buttons
+	editButton.addEventListener('click', editContact);
+	deleteButton.addEventListener('click', deleteContact);
+	
+	// append the HTML elements to the contact element
+	contactElement.appendChild(fname);
+	contactElement.appendChild(document.createElement('br'));
+	contactElement.appendChild(email);
+	contactElement.appendChild(document.createElement('br'));
+	contactElement.appendChild(password);
+	contactElement.appendChild(document.createElement('br'));
+	contactElement.appendChild(editButton);
+	contactElement.appendChild(deleteButton);
+	
+	return contactElement;
 }
 
-function updateContact()
-{
-
+// function to fetch and display the contact information
+function displayContacts() {
+	fetch(url)
+	.then(response => response.json())
+	.then(contacts => {
+		// create a contact element for each contact and append it to the contact list
+		contacts.forEach(contact => {
+			const contactElement = createContactElement(contact);
+			contactList.appendChild(contactElement);
+		});
+	})
+	.catch(error => {
+		// displays error
+		alert(error.message);
+	});
 }
 
-function deleteContact()
-{
-
+// function to edit a contact
+function editContact(event) {
+	// get the ID of the contact to edit from the button's data-id attribute
+	const id = event.target.getAttribute('data-id');
+	
+	// TODO: implement editing functionality
 }
+
+// function to delete a contact
+function deleteContact(event) {
+	// get the ID of the contact to delete from the button's data-id attribute
+	const id = event.target.getAttribute('data-id');
+	
+	// send a DELETE request to the API to delete the contact
+	fetch(`${url}/${id}`, {
+		method: 'DELETE',
+		headers: {
+			'Authorization': `Bearer ${localStorage.getItem('token')}`
+		}
+	})
+	.then(response => {
+		if (response.ok) {
+			// remove the contact element from the contact list
+			event.target.parentNode.remove();
+		} else {
+			// display an error message
+			throw new Error('Failed to delete contact');
+		}
+	})
+	.catch(error => {
+		alert(error.message);
+	});
+}
+
+// fetch and display the contact information when the page loads
+displayContacts();
