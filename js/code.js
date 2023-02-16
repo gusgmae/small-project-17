@@ -92,53 +92,38 @@ function decodeCookie()
             }
         };
     }
-    catch(err)
-    {
-        document.getElementById("serverMessage").innerHTML = err.message;
-        let curr = split.trim();
-        let tokens = curr.split("=");
-        username = tokens[1];
-        userID = tokens[0];
-    }
 }
 
 // get reference to the contact list HTML element
 const contactList = document.getElementById('contact-list');
 
-// function to create a contact HTML element with edit and delete buttons
-function createContactElement(contact) {
-	// create the HTML elements
-	const contactElement = document.createElement('div');
-	const fname = document.createElement('span');
-	const email = document.createElement('span');
-	const password = document.createElement('span');
-	const editButton = document.createElement('button');
-	const deleteButton = document.createElement('button');
-	
-	// set the text and attributes of the HTML elements
-	fname.textContent = `${contact.firstname} ${contact.lastname}`;
-	email.textContent = contact.email;
-	password.textContent = contact.password;
-	editButton.textContent = 'Edit';
-	editButton.setAttribute('data-id', contact.id);
-	deleteButton.textContent = 'Delete';
-	deleteButton.setAttribute('data-id', contact.id);
-	
-	// add event listeners to the edit and delete buttons
-	editButton.addEventListener('click', editContact);
-	deleteButton.addEventListener('click', deleteContact);
-	
-	// append the HTML elements to the contact element
-	contactElement.appendChild(fname);
-	contactElement.appendChild(document.createElement('br'));
-	contactElement.appendChild(email);
-	contactElement.appendChild(document.createElement('br'));
-	contactElement.appendChild(password);
-	contactElement.appendChild(document.createElement('br'));
-	contactElement.appendChild(editButton);
-	contactElement.appendChild(deleteButton);
-	
-	return contactElement;
+// function to create a contact HTML element with edit and delete buttons eventually
+function getContacts(username) 
+{
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json'
+      },
+      body: JSON.stringify({UserEmail: username})
+    };
+  
+    fetch(url, options)
+      .then(response => response.json())
+      .then(data => {
+        const table = document.getElementById('contactsTable');
+        data.forEach(contact => {
+          const row = table.insertRow(-1);
+          const nameCell = row.insertCell(0);
+          const emailCell = row.insertCell(1);
+          const phoneCell = row.insertCell(2);
+          nameCell.innerHTML = contact.name;
+          emailCell.innerHTML = contact.email;
+          phoneCell.innerHTML = contact.phone;
+        });
+      })
+      .catch(error => console.error(error));
 }
 
 function addContact()
@@ -162,11 +147,6 @@ function addContact()
     // Send request
     xhr.send(JSON.stringify(dict));
 }
-
-//myemail@gmail.com
-
-function readContact()
-{
 
 // function to fetch and display the contact information
 function displayContacts() {
@@ -279,9 +259,6 @@ function testLogin(){
         }
           })
       .catch(error => window.alert("Username not found"))
-
-
-
 }
 
 
@@ -291,4 +268,4 @@ function deleteUser()
   //needs to send ID and UserName
 }
 // fetch and display the contact information when the page loads
-displayContacts();
+getContacts();
