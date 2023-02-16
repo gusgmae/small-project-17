@@ -3,7 +3,7 @@ const urlBase = '../API' //updated by judah, should link to php file responsible
 const extension = 'php'
 
 function sendLogin()
-let url = '' // TODO Fill this out based on yaml
+let url = 'http://161.35.140.80' // TODO Fill this out based on yaml
 
 function Register()
 {
