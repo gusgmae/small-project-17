@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Nunito', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+   transition: all .2s linear;
+   text-transform: capitalize;
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+body{
+   background: #eee;
+}
+
+.container{
+   max-width: 1200px;
+   margin:0 auto;
+   padding:3rem 2rem;
+}
+
+.container .title{
+   font-size: 3.5rem;
+   color:#444;
+   margin-bottom: 3rem;
+   text-transform: uppercase;
+   text-align: center;
+}
+
+.container .contacts-container{
+   display: grid;
+   justify-items: center;
+   /* grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); */
+   gap:2rem;
+}
+
+.container .contacts-container .contact{
+   width: 50%;
+   height: 100px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 20px;
+   border: 1px solid black;
+   border-radius: 5px;
+   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+   transition: box-shadow 0.3s ease-in-out;
+   /* margin: 20px; */
+   cursor: pointer;
+}
+
+.container .contacts-container .contact:hover{
+   outline: .2rem solid #222;
+   outline-offset: 0;
+}
+
+.container .contacts-container .contact img{
+   height: 25rem;
+}
+
+.container .contacts-container .contact:hover img{
+   transform: scale(.9);
+}
+
+.container .contacts-container .contact h3{
+   padding:.5rem 0;
+   font-size: 2rem;
+   color:#444;
+}
+
+.container .contacts-container .contact:hover h3{
+   color:#27ae60;
+}
+
+.container .contacts-container .contact .price{
+   font-size: 2rem;
+   color:#444;
+}
+
+.contacts-preview{
+   position: fixed;
+   top:0; left:0;
+   min-height: 100vh;
+   width: 100%;
+   background: rgba(0,0,0,.8);
+   display: none;
+   align-items: center;
+   justify-content: center;
+}
+
+.contacts-preview .preview{
+   display: none;
+   padding:2rem;
+   text-align: center;
+   background: #fff;
+   position: relative;
+   margin:2rem;
+   width: 40rem;
+}
+
+.contacts-preview .preview.active{
+   display: inline-block;
+}
+
+.contacts-preview .preview img{
+   height: 30rem;
+}
+
+.contacts-preview .preview .fa-times{
+   position: absolute;
+   top:1rem; right:1.5rem;
+   cursor: pointer;
+   color:#444;
+   font-size: 4rem;
+}
+
+.contacts-preview .preview .fa-times:hover{
+   
+}
+
+.contacts-preview .preview h3{
+   color:#444;
+   padding:.5rem 0;
+   font-size: 2.5rem;
+}
+
+.contacts-preview .preview .stars{
+   padding:1rem 0;
+   font-size: 1.7rem;
+}
+
+.contacts-preview .preview .stars i{
+   color:#27ae60;
+}
+
+.contacts-preview .preview .stars span{
+   color:#999;
+}
+
+.contacts-preview .preview p{
+   line-height: 1.5;
+   padding:1rem 0;
+   font-size: 1.6rem;
+   color:#777;
+}
+
+.contacts-preview .preview .price{
+   padding:1rem 0;
+   font-size: 2.5rem;
+   color:#27ae60;
+}
+
+.contacts-preview .preview .buttons{
+   display: flex;
+   gap:1.5rem;
+   flex-wrap: wrap;
+   margin-top: 1rem;
+}
+
+.contacts-preview .preview .buttons a{
+   flex:1 1 16rem;
+   padding:1rem;
+   font-size: 1.8rem;
+   color:#444;
+   border:.1rem solid #444;
+}
+
+.contacts-preview .preview .buttons a.delete{
+   background: #444;
+   color:#fff;
+}
+
+.contacts-preview .preview .buttons a.delete:hover{
+   background: #111;
+}
+
+.contacts-preview .preview .buttons a.edit:hover{
+   background: #444;
+   color:#fff;
+}
+
